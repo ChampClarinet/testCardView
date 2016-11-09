@@ -30,7 +30,7 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
     @Override
     public GenericHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_layout, parent, false);
-        ViewHolder holder = new ViewHolder(v);
+        ViewHolder holder = new ViewHolder(v, dataSet);
         return holder;
     }
 
@@ -54,14 +54,25 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
 
     }
 
-    public static class ViewHolder extends GenericHolder{
+    public static class ViewHolder extends GenericHolder implements View.OnClickListener{
         private final TextView nameTextView;
         private final ImageView imageView;
+        private final String[] dataSet;
 
-        public ViewHolder(final View itemView){
+        public ViewHolder(final View itemView, String[] dataSet){
             super(itemView);
+            this.dataSet = dataSet;
             nameTextView = (TextView) itemView.findViewById(R.id.person_name);
             imageView = (ImageView) itemView.findViewById(R.id.person_photo);
+            imageView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if(v.getId() == R.id.person_photo){
+                Log.i("selection", dataSet[position]);
+            }
         }
 
         @Override
