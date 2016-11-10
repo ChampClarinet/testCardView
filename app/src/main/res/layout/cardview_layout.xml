@@ -34,6 +34,28 @@
                 android:text="TextView"
                 tools:ignore="HardcodedText" />
 
+            <TextView
+                android:id="@+id/person_score_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/person_name"
+                android:layout_toRightOf="@id/person_photo"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="Score : "
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/person_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/person_name"
+                android:layout_toRightOf="@id/person_score_label"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="20"
+                tools:ignore="HardcodedText" />
+
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
